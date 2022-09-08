@@ -126,6 +126,9 @@ class NetworkManagerPlugin(PHALPlugin):
                           "networks": dbus_networks_list}))
         if self.backend == "nmcli":
             LOG.info("Scanning for networks using nmcli backend")
+            subprocess.Popen(
+                ['nmcli', 'dev', 'wifi', 'rescan']
+            )
             scan_process = subprocess.Popen(
                 ["nmcli", "--terse", "--fields", "SSID,SECURITY", "device", "wifi", "list"], stdout=subprocess.PIPE)
             scan_output = scan_process.communicate(
@@ -167,8 +170,10 @@ class NetworkManagerPlugin(PHALPlugin):
             # TODO: Implement dbus backend
             LOG.info("Connecting to network using dbus backend")
         if self.backend == "nmcli":
-            connection_process = subprocess.Popen(
-                ["nmcli", "device", "wifi", "connect", network_name, "password", secret_phrase], stdout=subprocess.PIPE)
+            cmd = ["nmcli", "device", "wifi", "connect", network_name]
+            if secret_phrase:
+                cmd.extend(["password", secret_phrase])
+            connection_process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
             connection_output = connection_process.communicate()[
                 0].decode("utf-8").split("\n")
             if "successfully activated" in connection_output[0]:
