@@ -190,7 +190,7 @@ class NetworkManagerPlugin(PHALPlugin):
             LOG.info("Connecting to network using dbus backend")
         if self.backend == "nmcli":
             connection_process = subprocess.Popen(
-                ["nmcli", "device", "wifi", "connect", network_name], stdout=subprocess.PIPE)
+                ["nmcli", "connection", "up", network_name], stdout=subprocess.PIPE)
             connection_output = connection_process.communicate()[
                 0].decode("utf-8").split("\n")
             if "successfully activated" in connection_output[0]:
