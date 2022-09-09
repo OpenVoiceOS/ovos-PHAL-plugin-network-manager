@@ -84,6 +84,8 @@ class NetworkManagerPlugin(PHALPlugin):
         self.bus.on("ovos.phal.nm.scan", self.handle_network_scan_request)
         self.bus.on("ovos.phal.nm.connect",
                     self.handle_network_connect_request)
+        self.bus.on("ovos.phal.nm.reconnect", 
+                    self.handle_network_reconnect_request)
         self.bus.on("ovos.phal.nm.disconnect",
                     self.handle_network_disconnect_request)
         self.bus.on("ovos.phal.nm.forget", self.handle_network_forget_request)
@@ -170,10 +172,25 @@ class NetworkManagerPlugin(PHALPlugin):
             # TODO: Implement dbus backend
             LOG.info("Connecting to network using dbus backend")
         if self.backend == "nmcli":
-            cmd = ["nmcli", "device", "wifi", "connect", network_name]
-            if secret_phrase:
-                cmd.extend(["password", secret_phrase])
-            connection_process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+            connection_process = subprocess.Popen(
+                ["nmcli", "device", "wifi", "connect", network_name, "password", secret_phrase], stdout=subprocess.PIPE)
+            connection_output = connection_process.communicate()[
+                0].decode("utf-8").split("\n")
+            if "successfully activated" in connection_output[0]:
+                self.bus.emit(Message("ovos.phal.nm.connection.successful", {
+                              "connection_name": network_name}))
+            else:
+                self.bus.emit(Message("ovos.phal.nm.connection.failure", {
+                              "errorCode": 1, "errorMessage": "Connection Failed"}))
+                
+    def handle_network_reconnect_request(self, message):
+        network_name = message.data.get("connection_name", "")
+        if self.backend == "dbus":
+            # TODO: Implement dbus backend
+            LOG.info("Connecting to network using dbus backend")
+        if self.backend == "nmcli":
+            connection_process = subprocess.Popen(
+                ["nmcli", "device", "wifi", "connect", network_name], stdout=subprocess.PIPE)
             connection_output = connection_process.communicate()[
                 0].decode("utf-8").split("\n")
             if "successfully activated" in connection_output[0]:
