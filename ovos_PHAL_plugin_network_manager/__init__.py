@@ -85,7 +85,7 @@ class NetworkManagerPlugin(PHALPlugin):
         self.bus.on("ovos.phal.nm.connect",
                     self.handle_network_connect_request)
         self.bus.on("ovos.phal.nm.connect.open.network",
-                    self.handle_network_connect_request)
+                    self.handle_open_network_connect_request)
         self.bus.on("ovos.phal.nm.reconnect", 
                     self.handle_network_reconnect_request)
         self.bus.on("ovos.phal.nm.disconnect",
