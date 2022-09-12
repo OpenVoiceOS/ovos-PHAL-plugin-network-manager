@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a2...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a3...HEAD)
+
+**Fixed bugs:**
+
+- Fix connection and reconnection [\#2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/2) ([AIIX](https://github.com/AIIX))
+
+## [V1.0.0a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.0a3) (2022-09-08)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a2...V1.0.0a3)
 
 **Merged pull requests:**
 
