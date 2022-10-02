@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a3...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a4...HEAD)
+
+**Merged pull requests:**
+
+- Update PyPI Action name and action spec [\#3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/3) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V1.0.0a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.0a4) (2022-09-12)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a3...V1.0.0a4)
 
 **Fixed bugs:**
 
