@@ -182,6 +182,9 @@ class NetworkManagerPlugin(PHALPlugin):
                 self.bus.emit(Message("ovos.phal.nm.connection.successful", {
                               "connection_name": network_name}))
             else:
+                if "(7)" in connection_output[0] or "(10)" in connection_output[0]:
+                    self.handle_network_forget_request(Message("ovos.phal.nm.forget", {"connection_name": network_name}))
+
                 self.bus.emit(Message("ovos.phal.nm.connection.failure", {
                               "errorCode": 1, "errorMessage": "Connection Failed"}))
 
