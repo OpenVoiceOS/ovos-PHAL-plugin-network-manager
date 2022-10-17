@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a5...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a6...HEAD)
+
+**Fixed bugs:**
+
+- forget network on invalid secrets [\#5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/5) ([AIIX](https://github.com/AIIX))
+
+## [V1.0.0a6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.0a6) (2022-10-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a5...V1.0.0a6)
 
 **Closed issues:**
 
