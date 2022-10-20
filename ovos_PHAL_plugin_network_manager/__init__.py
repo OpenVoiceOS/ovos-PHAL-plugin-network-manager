@@ -274,7 +274,7 @@ class NetworkManagerPlugin(PHALPlugin):
                 self.bus.emit(Message("ovos.phal.nm.forget.successful",
                               {"connection_name": network_name}))
             else:
-                self.bus.emit("ovos.phal.nm.forget.failure")
+                self.bus.emit(Message("ovos.phal.nm.forget.failure"))
 
     def handle_network_connected_query(self, message):
         # Handle Different Backends
