@@ -45,7 +45,8 @@ def package_files(directory):
             paths.append(os.path.join('..', path, filename))
     return paths
 
-PLUGIN_ENTRY_POINT = 'ovos-PHAL-plugin-network-manager=ovos_PHAL_plugin_network_manager:NetworkManagerPlugin'
+ADMIN_PLUGIN_ENTRY_POINT = 'ovos-PHAL-plugin-network-manager=ovos_PHAL_plugin_network_manager:NetworkManagerPlugin'
+
 setup(
     name='ovos-PHAL-plugin-network-manager',
     version=get_version(),
@@ -71,5 +72,5 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
     ],
-    entry_points={'ovos.plugin.phal': PLUGIN_ENTRY_POINT}
+    entry_points={'ovos.plugin.phal.admin': ADMIN_PLUGIN_ENTRY_POINT}
 )
