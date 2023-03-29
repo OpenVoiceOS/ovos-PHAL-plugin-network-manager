@@ -22,7 +22,7 @@ allow_unknown = False
 allow_unlicense = True
 allow_ambiguous = False
 
-pkg_name = "ovos_notifications_service"
+pkg_name = "ovos_PHAL_plugin_network_manager"
 
 
 class TestLicensing(unittest.TestCase):
