@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a1...HEAD)
+
+**Fixed bugs:**
+
+- feat/add\_validator [\#9](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/9) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V1.0.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.1a1) (2023-04-04)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0...V1.0.1a1)
 
 **Closed issues:**
 
