@@ -2,11 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a7...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0...HEAD)
 
 **Closed issues:**
 
 - Failed WiFi setup [\#6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/issues/6)
+
+## [V1.0.0](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.0) (2022-10-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0a7...V1.0.0)
 
 ## [V1.0.0a7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.0a7) (2022-10-17)
 
