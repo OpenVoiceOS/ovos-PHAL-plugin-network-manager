@@ -1,6 +1,7 @@
 import asyncio
 import subprocess
 import threading
+from distutils.spawn import find_executable
 
 from dbus_next.aio import MessageBus
 from dbus_next.constants import BusType
@@ -70,7 +71,16 @@ from ovos_utils.log import LOG
 # - type: Response
 # - description: Emitted when a connection fails to forget
 
+
+class NetworkManagerValidator:
+    @staticmethod
+    def validate(config=None):
+        # check if nmcli is installed
+        return find_executable("nmcli")
+
+
 class NetworkManagerPlugin(PHALPlugin):
+    validator = NetworkManagerValidator
 
     def __init__(self, bus=None, config=None):
         super().__init__(bus=bus, name="ovos-PHAL-plugin-network-manager", config=config)
