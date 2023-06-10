@@ -5,7 +5,7 @@ from distutils.spawn import find_executable
 
 from dbus_next.aio import MessageBus
 from dbus_next.constants import BusType
-from mycroft_bus_client.message import Message
+from ovos_bus_client.message import Message
 from ovos_plugin_manager.phal import PHALPlugin
 from ovos_utils.log import LOG
 
