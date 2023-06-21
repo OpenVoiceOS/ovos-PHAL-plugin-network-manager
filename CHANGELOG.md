@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1a6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.0.1a6) (2023-06-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.0.1a5...1.0.1a6)
+
+**Merged pull requests:**
+
+- Fix copy/paste path error in release automation [\#12](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/12) ([NeonDaniel](https://github.com/NeonDaniel))
+
 ## [1.0.1a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.0.1a5) (2023-06-21)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a4...1.0.1a5)
