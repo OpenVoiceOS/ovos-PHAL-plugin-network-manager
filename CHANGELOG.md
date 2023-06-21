@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a2...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a3...HEAD)
+
+**Fixed bugs:**
+
+- Fix typo in nm network forget message [\#7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/7) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V1.0.1a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.1a3) (2023-06-10)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a2...V1.0.1a3)
 
 **Merged pull requests:**
 
