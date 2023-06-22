@@ -1,10 +1,11 @@
 import asyncio
 import subprocess
 import threading
+from distutils.spawn import find_executable
 
 from dbus_next.aio import MessageBus
 from dbus_next.constants import BusType
-from mycroft_bus_client.message import Message
+from ovos_bus_client.message import Message
 from ovos_plugin_manager.phal import PHALPlugin
 from ovos_utils.log import LOG
 
@@ -70,7 +71,16 @@ from ovos_utils.log import LOG
 # - type: Response
 # - description: Emitted when a connection fails to forget
 
+
+class NetworkManagerValidator:
+    @staticmethod
+    def validate(config=None):
+        # check if nmcli is installed
+        return find_executable("nmcli")
+
+
 class NetworkManagerPlugin(PHALPlugin):
+    validator = NetworkManagerValidator
 
     def __init__(self, bus=None, config=None):
         super().__init__(bus=bus, name="ovos-PHAL-plugin-network-manager", config=config)
@@ -274,7 +284,7 @@ class NetworkManagerPlugin(PHALPlugin):
                 self.bus.emit(Message("ovos.phal.nm.forget.successful",
                               {"connection_name": network_name}))
             else:
-                self.bus.emit("ovos.phal.nm.forget.failure")
+                self.bus.emit(Message("ovos.phal.nm.forget.failure"))
 
     def handle_network_connected_query(self, message):
         # Handle Different Backends
