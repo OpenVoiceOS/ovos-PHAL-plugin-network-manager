@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.1.1a2) (2023-09-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.1.1a1...1.1.1a2)
+
+**Merged pull requests:**
+
+- refactor/Admin [\#17](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [1.1.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.1.1a1) (2023-09-14)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.1.0...1.1.1a1)
