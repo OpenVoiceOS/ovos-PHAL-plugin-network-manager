@@ -1,52 +1,12 @@
 # Changelog
 
-## [1.0.1a6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.0.1a6) (2023-06-21)
+## [1.1.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.1.1a1) (2023-09-14)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.0.1a5...1.0.1a6)
-
-**Merged pull requests:**
-
-- Fix copy/paste path error in release automation [\#12](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/12) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.1a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.0.1a5) (2023-06-21)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a4...1.0.1a5)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.1.0...1.1.1a1)
 
 **Merged pull requests:**
 
-- Update automation to shared actions [\#11](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/11) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V1.0.1a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.1a4) (2023-06-21)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a3...V1.0.1a4)
-
-**Fixed bugs:**
-
-- Fix typo in nm network forget message [\#7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/7) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V1.0.1a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.1a3) (2023-06-10)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a2...V1.0.1a3)
-
-**Merged pull requests:**
-
-- Update bus dependency [\#10](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/10) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V1.0.1a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.1a2) (2023-04-04)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.1a1...V1.0.1a2)
-
-**Fixed bugs:**
-
-- feat/add\_validator [\#9](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/9) ([JarbasAl](https://github.com/JarbasAl))
-
-## [V1.0.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.0.1a1) (2023-04-04)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.0.0...V1.0.1a1)
-
-**Closed issues:**
-
-- Failed WiFi setup [\#6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/issues/6)
+- refactor/rm\_unfinished\_dbus\_bloat [\#16](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/16) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
