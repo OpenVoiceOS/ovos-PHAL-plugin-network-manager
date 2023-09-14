@@ -25,6 +25,7 @@ This plugin is a Admin plugin, it needs to run as root and to be explicitly enab
 }
 }
 ```
+if not enabled (omit config above) it will be run as the regular user, you need to ensure polkit policy is set to allow usage of nmcli without sudo
 
 # Event Details:
 

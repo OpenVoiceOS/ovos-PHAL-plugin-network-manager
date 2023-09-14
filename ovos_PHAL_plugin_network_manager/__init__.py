@@ -2,7 +2,8 @@ import subprocess
 from distutils.spawn import find_executable
 
 from ovos_bus_client.message import Message
-from ovos_plugin_manager.phal import AdminPlugin, AdminValidator
+from ovos_config import Configuration
+from ovos_plugin_manager.phal import AdminPlugin, AdminValidator, PHALPlugin, PHALValidator
 from ovos_utils.log import LOG
 
 
@@ -68,14 +69,21 @@ from ovos_utils.log import LOG
 # - description: Emitted when a connection fails to forget
 
 
-class NetworkManagerValidator(AdminValidator):
+class NetworkManagerValidator(PHALValidator):
     @staticmethod
     def validate(config=None):
-        # check if nmcli is installed
+        # check if admin plugin is not enabled
+        cfg = Configuration().get("PHAL", {}).get("admin", {})
+        if cfg.get("ovos-PHAL-plugin-network-manager", {}).get("enabled"):
+            # run this plugin in admin mode (as root)
+            return False
+
+        # check if nmcli is installed, assume polkit allows non-root usage
+        LOG.info("ovos-PHAL-plugin-network-manager running as user")
         return find_executable("nmcli")
 
 
-class NetworkManagerPlugin(AdminPlugin):
+class NetworkManagerPlugin(PHALPlugin):
     validator = NetworkManagerValidator
 
     def __init__(self, bus=None, config=None):
@@ -224,3 +232,13 @@ class NetworkManagerPlugin(AdminPlugin):
             self.bus.emit(Message("ovos.phal.nm.is.not.connected"))
 
 
+class NetworkManagerAdminValidator(AdminValidator, NetworkManagerValidator):
+    @staticmethod
+    def validate(config=None):
+        LOG.info("ovos-PHAL-plugin-network-manager running as root")
+        # check if nmcli is installed
+        return find_executable("nmcli")
+
+
+class NetworkManagerAdminPlugin(AdminPlugin, NetworkManagerPlugin):
+    validator = NetworkManagerAdminValidator
