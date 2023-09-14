@@ -55,7 +55,10 @@ def get_description():
     return long_description
 
 
-PLUGIN_ENTRY_POINT = 'ovos-PHAL-plugin-network-manager=ovos_PHAL_plugin_network_manager:NetworkManagerPlugin'
+PLUGIN_ENTRY_POINT = (
+    'ovos-PHAL-plugin-network-manager=ovos_PHAL_plugin_network_manager:NetworkManagerPlugin',
+    'ovos-PHAL-plugin-network-manager-dbus=ovos_PHAL_plugin_network_manager:DbusNetworkManagerPlugin')
+
 setup(
     name='ovos-PHAL-plugin-network-manager',
     version=get_version(),
