@@ -9,16 +9,6 @@ from ovos_utils.log import LOG
 
 # Event Documentation
 # ===================
-# Backend:
-# ovos.phal.nm.set.backend
-# - type: Request
-# - description: Allows client to use a specific backend
-#
-# ovos.phal.nm.backend.not.supported
-# - type: Response
-# - description: Emitted when plugin does not support the
-# specific backend
-#
 # Scanning: 
 # ovos.phal.nm.scan
 # - type: Request

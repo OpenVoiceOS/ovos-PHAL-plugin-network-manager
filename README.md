@@ -29,24 +29,6 @@ if not enabled (omit config above) it will be run as the regular user, you need 
 
 # Event Details:
 
-##### Backend Selection
-
-This plugin provides two different backends: nmcli and dbus, the following event allows for setting the backend at runtime for every operation
-
-```python
-
-# Backend:
-# ovos.phal.nm.set.backend
-# - type: Request
-# - description: Allows client to use a specific backend
-
-# ovos.phal.nm.backend.not.supported
-# - type: Response
-# - description: Emitted when plugin does not support the
-# specific backend
-
-```
-
 ##### Scanning
 
 This plugin provides scanning operations for Network Manager to scan for available nearby networks, the following event can be used to initialize the scan.
