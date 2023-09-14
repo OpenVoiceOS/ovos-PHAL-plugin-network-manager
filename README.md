@@ -25,7 +25,7 @@ This plugin is a Admin plugin, it needs to run as root and to be explicitly enab
 }
 }
 ```
-if not enabled (omit config above) it will be run as the regular user, you need to ensure polkit policy is set to allow usage of nmcli without sudo
+if not enabled (omit config above) it will be run as the regular user, you need to ensure [polkit policy](https://github.com/OpenVoiceOS/ovos-buildroot/blob/5c7af8b05892206846ae06adb3478f1df620bf6b/buildroot-external/rootfs-overlay/base/etc/polkit-1/rules.d/50-org.freedesktop.NetworkManager.rules) is set to allow usage of nmcli without sudo
 
 # Event Details:
 
