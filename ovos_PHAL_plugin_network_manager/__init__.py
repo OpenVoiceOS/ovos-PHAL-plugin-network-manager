@@ -5,6 +5,8 @@ from ovos_bus_client.message import Message
 from ovos_plugin_manager.phal import PHALPlugin
 from ovos_utils.log import LOG
 
+from ovos_PHAL_plugin_network_manager.dbus_nm import DbusNetworkManager
+
 
 # Event Documentation
 # ===================
@@ -224,3 +226,140 @@ class NetworkManagerPlugin(PHALPlugin):
             self.bus.emit(Message("ovos.phal.nm.is.not.connected"))
 
 
+class DbusNetworkManagerValidator:
+    @staticmethod
+    def validate(config=None):
+        # use dbus if nmcli is NOT installed
+        # TODO - default to dbus instead ?
+        return not find_executable("nmcli")
+
+
+class DbusNetworkManagerPlugin(PHALPlugin):
+    validator = DbusNetworkManagerValidator
+
+    def __init__(self, bus=None, config=None):
+        super().__init__(bus=bus, name="ovos-PHAL-plugin-network-manager-dbus", config=config)
+        self.dbus_manager = DbusNetworkManager()
+        # Register Network Manager Events
+        self.bus.on("ovos.phal.nm.scan", self.handle_network_scan_request)
+        self.bus.on("ovos.phal.nm.connect", self.handle_network_connect_request)
+        self.bus.on("ovos.phal.nm.connect.open.network", self.handle_open_network_connect_request)
+        self.bus.on("ovos.phal.nm.reconnect", self.handle_network_reconnect_request)
+        self.bus.on("ovos.phal.nm.disconnect", self.handle_network_disconnect_request)
+        self.bus.on("ovos.phal.nm.forget", self.handle_network_forget_request)
+        self.bus.on("ovos.phal.nm.get.connected", self.handle_network_connected_query)
+
+    # Network Manager Events
+    def handle_network_scan_request(self, message):
+        LOG.info("Scanning for networks using dbus backend")
+        dbus_networks_list = self.dbus_manager.get_access_points()
+        self.bus.emit(Message("ovos.phal.nm.scan.complete",
+                              {"networks": dbus_networks_list}))
+
+    def handle_network_connect_request(self, message):
+        network_name = message.data.get("connection_name", "")
+        secret_phrase = message.data.get("password", "")
+        security_type = message.data.get("security_type", "")
+
+        # First check we have a valid network name
+        if network_name is None or network_name == "":
+            LOG.error("No network name provided")
+            return
+
+        # Check if the password is provided if the security type is not open
+        if security_type != "open" and secret_phrase is None:
+            LOG.error("No password provided")
+            self.bus.emit(Message("ovos.phal.nm.connection.failure", {
+                "errorCode": 0, "errorMessage": "Password Required"}))
+            return
+
+        LOG.info("Connecting to network using dbus backend")
+        self.dbus_manager.connect_to_ssid(network_name, secret_phrase)
+
+        # TODO - validate connection
+        success = True
+        if success:
+            self.bus.emit(Message("ovos.phal.nm.connection.successful", {
+                "connection_name": network_name}))
+        else:
+            self.bus.emit(Message("ovos.phal.nm.connection.failure", {
+                "errorCode": 1, "errorMessage": "Connection Failed"}))
+
+    def handle_open_network_connect_request(self, message):
+        network_name = message.data.get("connection_name", "")
+
+        # First check we have a valid network name
+        if network_name is None or network_name == "":
+            LOG.error("No network name provided")
+            return
+
+        LOG.info("Connecting to network using dbus backend")
+        self.dbus_manager.connect_to_ssid(network_name, None)
+
+        # TODO - validate connection
+        success = True
+        if success:
+            self.bus.emit(Message("ovos.phal.nm.connection.successful", {
+                "connection_name": network_name}))
+        else:
+            self.bus.emit(Message("ovos.phal.nm.connection.failure", {
+                "errorCode": 1, "errorMessage": "Connection Failed"}))
+
+    def handle_network_reconnect_request(self, message):
+        network_name = message.data.get("connection_name", "")
+        LOG.info("Connecting to network using dbus backend")
+        self.dbus_manager.activate_ssid(network_name)
+
+        # TODO - validate connection
+        success = True
+        if success:
+            self.bus.emit(Message("ovos.phal.nm.connection.successful", {
+                "connection_name": network_name}))
+        else:
+            self.bus.emit(Message("ovos.phal.nm.connection.failure", {
+                "errorCode": 1, "errorMessage": "Connection Failed"}))
+
+    def handle_network_disconnect_request(self, message):
+        network_name = message.data.get("connection_name", "")
+
+        # First check we have a valid network name
+        if network_name is None or network_name == "":
+            LOG.error("No network name provided")
+            return
+
+        LOG.info("Disconnecting from network using dbus backend")
+        self.dbus_manager.deactivate_ssid(network_name)
+
+        # TODO - validate
+        success = True
+        if success:
+            self.bus.emit(Message("ovos.phal.nm.disconnection.successful", {
+                "connection_name": network_name}))
+        else:
+            self.bus.emit(Message("ovos.phal.nm.disconnection.failure"))
+
+    def handle_network_forget_request(self, message):
+        network_name = message.data.get("connection_name", "")
+
+        # First check we have a valid network name
+        if network_name is None or network_name == "":
+            LOG.error("No network name provided")
+            return
+
+        # TODO: Implement dbus backend
+        LOG.info("Forgetting network using dbus backend")
+        success = False
+        if success:
+            self.bus.emit(Message("ovos.phal.nm.forget.successful",
+                                  {"connection_name": network_name}))
+        else:
+            self.bus.emit(Message("ovos.phal.nm.forget.failure"))
+
+    def handle_network_connected_query(self, message):
+        LOG.info("Checking if network is connected using dbus backend")
+        if len(self.dbus_manager.get_active_cons()):
+            self.bus.emit(Message("ovos.phal.nm.is.connected", {
+                "connection_name": "",  # TODO, how to get from /org/freedesktop/NetworkManager/ActiveConnection/1 ?
+            }))
+        else:
+            self.bus.emit(Message("ovos.phal.nm.is.not.connected"))
