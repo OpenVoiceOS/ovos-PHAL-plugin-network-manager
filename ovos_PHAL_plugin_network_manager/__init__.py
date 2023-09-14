@@ -2,7 +2,7 @@ import subprocess
 from distutils.spawn import find_executable
 
 from ovos_bus_client.message import Message
-from ovos_plugin_manager.phal import PHALPlugin
+from ovos_plugin_manager.phal import AdminPlugin, AdminValidator
 from ovos_utils.log import LOG
 
 
@@ -68,14 +68,14 @@ from ovos_utils.log import LOG
 # - description: Emitted when a connection fails to forget
 
 
-class NetworkManagerValidator:
+class NetworkManagerValidator(AdminValidator):
     @staticmethod
     def validate(config=None):
         # check if nmcli is installed
         return find_executable("nmcli")
 
 
-class NetworkManagerPlugin(PHALPlugin):
+class NetworkManagerPlugin(AdminPlugin):
     validator = NetworkManagerValidator
 
     def __init__(self, bus=None, config=None):

@@ -1,6 +1,8 @@
 # PHAL plugin - Network Manager
 
-Provides the network manager interface for NetworkManager based plugins. This plugin utilizes nmcli for all communications with network manager. The dbus interface for this plugin is a work in progress.
+Provides the network manager interface for NetworkManager based plugins.
+This plugin utilizes nmcli for all communications with network manager.
+The dbus interface for this plugin is a work in progress. [#15](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/15)
 
 # Requires
 This plugin has the following requirements:
@@ -9,6 +11,20 @@ This plugin has the following requirements:
 # Install
 
 `pip install ovos-PHAL-plugin-network-manager`
+
+# Config
+
+This plugin is a Admin plugin, it needs to run as root and to be explicitly enabled in mycroft.conf
+
+```javascript
+{
+"PHAL": {
+    "admin": {
+        "ovos-PHAL-plugin-network-manager": {"enabled": true}
+    }
+}
+}
+```
 
 # Event Details:
 
