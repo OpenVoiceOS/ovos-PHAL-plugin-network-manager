@@ -1,6 +1,8 @@
 # PHAL plugin - Network Manager
 
-Provides the network manager interface for NetworkManager based plugins. This plugin utilizes nmcli for all communications with network manager. The dbus interface for this plugin is a work in progress.
+Provides the network manager interface for NetworkManager based plugins.
+This plugin utilizes nmcli for all communications with network manager.
+The dbus interface for this plugin is a work in progress. [#15](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/15)
 
 # Requires
 This plugin has the following requirements:
@@ -10,25 +12,22 @@ This plugin has the following requirements:
 
 `pip install ovos-PHAL-plugin-network-manager`
 
-# Event Details:
+# Config
 
-##### Backend Selection
+This plugin is a Admin plugin, it needs to run as root and to be explicitly enabled in mycroft.conf
 
-This plugin provides two different backends: nmcli and dbus, the following event allows for setting the backend at runtime for every operation
-
-```python
-
-# Backend:
-# ovos.phal.nm.set.backend
-# - type: Request
-# - description: Allows client to use a specific backend
-
-# ovos.phal.nm.backend.not.supported
-# - type: Response
-# - description: Emitted when plugin does not support the
-# specific backend
-
+```javascript
+{
+"PHAL": {
+    "admin": {
+        "ovos-PHAL-plugin-network-manager": {"enabled": true}
+    }
+}
+}
 ```
+if not enabled (omit config above) it will be run as the regular user, you need to ensure [polkit policy](https://github.com/OpenVoiceOS/ovos-buildroot/blob/5c7af8b05892206846ae06adb3478f1df620bf6b/buildroot-external/rootfs-overlay/base/etc/polkit-1/rules.d/50-org.freedesktop.NetworkManager.rules) is set to allow usage of nmcli without sudo
+
+# Event Details:
 
 ##### Scanning
 
