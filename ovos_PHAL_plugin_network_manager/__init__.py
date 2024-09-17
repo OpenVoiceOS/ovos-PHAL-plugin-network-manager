@@ -3,7 +3,7 @@ from distutils.spawn import find_executable
 
 from ovos_bus_client.message import Message
 from ovos_config import Configuration
-from ovos_plugin_manager.phal import AdminPlugin, AdminValidator, PHALPlugin, PHALValidator
+from ovos_plugin_manager.templates.phal import AdminPlugin, AdminValidator, PHALPlugin, PHALValidator
 from ovos_utils.log import LOG
 from ovos_PHAL_plugin_network_manager.gui import GUISetup
 
