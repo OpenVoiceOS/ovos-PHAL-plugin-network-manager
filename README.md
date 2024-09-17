@@ -8,6 +8,9 @@ The dbus interface for this plugin is a work in progress. [#15](https://github.c
 This plugin has the following requirements:
 - nmcli
 
+It also provides a GUI interface to setup wifi on screen, in this case you also need:
+- Plasma Network Manager: https://invent.kde.org/plasma/plasma-nm
+
 # Install
 
 `pip install ovos-PHAL-plugin-network-manager`

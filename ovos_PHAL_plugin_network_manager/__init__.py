@@ -86,7 +86,7 @@ class NetworkManagerPlugin(PHALPlugin):
         self.bus.on("ovos.phal.nm.disconnect", self.handle_network_disconnect_request)
         self.bus.on("ovos.phal.nm.forget", self.handle_network_forget_request)
         self.bus.on("ovos.phal.nm.get.connected", self.handle_network_connected_query)
-        self.gui_refactor = GUISetup(bus=bus)
+        self.gui_setup = GUISetup(bus=bus)  # extra GUI events
 
     # Network Manager Events
     def handle_network_scan_request(self, message):
