@@ -1,16 +1,16 @@
 # Changelog
 
-## [1.3.0a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.0a1) (2024-09-17)
+## [1.3.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.1a1) (2024-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.2.0...1.3.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.3.0...1.3.1a1)
 
 **Merged pull requests:**
 
-- feat:gui setup [\#21](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/21) ([JarbasAl](https://github.com/JarbasAl))
+- fix:imports [\#23](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/23) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V1.2.0](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.2.0) (2024-09-11)
+## [V1.3.0](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.3.0) (2024-09-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.2.0...V1.2.0)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.0...V1.3.0)
 
 
 
