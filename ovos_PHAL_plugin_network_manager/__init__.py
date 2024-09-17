@@ -5,7 +5,7 @@ from ovos_bus_client.message import Message
 from ovos_config import Configuration
 from ovos_plugin_manager.phal import AdminPlugin, AdminValidator, PHALPlugin, PHALValidator
 from ovos_utils.log import LOG
-
+from ovos_PHAL_plugin_network_manager.gui import GUISetup
 
 # Event Documentation
 # ===================
@@ -86,6 +86,7 @@ class NetworkManagerPlugin(PHALPlugin):
         self.bus.on("ovos.phal.nm.disconnect", self.handle_network_disconnect_request)
         self.bus.on("ovos.phal.nm.forget", self.handle_network_forget_request)
         self.bus.on("ovos.phal.nm.get.connected", self.handle_network_connected_query)
+        self.gui_refactor = GUISetup(bus=bus)
 
     # Network Manager Events
     def handle_network_scan_request(self, message):
