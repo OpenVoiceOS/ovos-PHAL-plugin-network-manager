@@ -15,6 +15,7 @@ class GUISetup(PHALPlugin):
         super().__init__(bus=bus, name="ovos-PHAL-plugin-gui-network-client",
                          config=config)
         self.gui = GUIInterface(bus=self.bus, skill_id=self.name,
+                                ui_directories={"qt5": join(dirname(__file__), "gui", "qt5")},
                                 config=self.config_core.get('gui'))
         self.connected_network = None
         self.client_active = False
@@ -167,7 +168,7 @@ class GUISetup(PHALPlugin):
 
     def manage_setup_display(self, state, page_type):
         self.log.info("In Displaying Page Function")
-        page = join(dirname(__file__), "ui", "GuiClientLoader.qml")
+        page = "GuiClientLoader"
         if state == "select-network" and page_type == "network":
             self.gui["page_type"] = "NetworkingLoader"
             self.gui["image"] = ""
