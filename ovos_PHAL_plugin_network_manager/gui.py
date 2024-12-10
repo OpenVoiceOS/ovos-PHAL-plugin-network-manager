@@ -15,6 +15,7 @@ class GUISetup(PHALPlugin):
         super().__init__(bus=bus, name="ovos-PHAL-plugin-gui-network-client",
                          config=config)
         self.gui = GUIInterface(bus=self.bus, skill_id=self.name,
+                                ui_directories={"qt5": join(dirname(__file__), "gui", "qt5")},
                                 config=self.config_core.get('gui'))
         self.connected_network = None
         self.client_active = False
@@ -155,19 +156,17 @@ class GUISetup(PHALPlugin):
             self.display_failed_password()
         else:
             self.manage_setup_display("setup-failed", "status")
-            self.speak_dialog("debug_wifi_error")
             sleep(5)
             self.display_network_setup()
 
     def display_failed_password(self):
         self.manage_setup_display("incorrect-password", "status")
-        self.speak_dialog("debug_wifi_error")
         sleep(5)
         self.display_network_setup()
 
     def manage_setup_display(self, state, page_type):
         self.log.info("In Displaying Page Function")
-        page = join(dirname(__file__), "ui", "GuiClientLoader.qml")
+        page = "GuiClientLoader"
         if state == "select-network" and page_type == "network":
             self.gui["page_type"] = "NetworkingLoader"
             self.gui["image"] = ""
@@ -208,34 +207,3 @@ class GUISetup(PHALPlugin):
     def shutdown(self):
         self.handle_stop_setup()
         super().shutdown()
-
-    # speech
-    @property
-    def lang(self):
-        return self.config.get("lang") or \
-            self.config_core.get("lang") or \
-            "en-us"
-
-    def speak_dialog(self, key):
-        """ Speak a random sentence from a dialog file.
-        Args:
-            key (str): dialog file key (e.g. "hello" to speak from the file
-                                        "locale/en-us/hello.dialog")
-        """
-        dialog_file = join(dirname(__file__), "locale",
-                           self.lang, key + ".dialog")
-        with open(dialog_file) as f:
-            utterances = [u for u in f.read().split("\n")
-                          if u.strip() and not u.startswith("#")]
-        utterance = random.choice(utterances)
-        meta = {'dialog': key,
-                'skill': self.name}
-        data = {'utterance': utterance,
-                'expect_response': False,
-                'meta': meta,
-                'lang': self.lang}
-        message = dig_for_message()
-        m = message.forward(
-            "speak", data) if message else Message("speak", data)
-        m.context["skill_id"] = self.name
-        self.bus.emit(m)
