@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.5a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a2) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5a1...1.3.5a2)
+
+**Merged pull requests:**
+
+- Update dependency python to 3.14 [\#32](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/32) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [1.3.5a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a1) (2025-12-18)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.3.4...1.3.5a1)
