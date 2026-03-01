@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.5a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a4) (2026-03-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5a3...1.3.5a4)
+
+**Merged pull requests:**
+
+- chore!: drop GUI [\#39](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/39) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [1.3.5a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a3) (2025-12-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5a2...1.3.5a3)
