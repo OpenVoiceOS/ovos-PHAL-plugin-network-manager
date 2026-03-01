@@ -77,6 +77,15 @@ class NetworkManagerPlugin(PHALPlugin):
     validator = NetworkManagerValidator
 
     def __init__(self, bus=None, config=None):
+        """
+        Initialize the NetworkManagerPlugin and register PHAL network event handlers on the message bus.
+        
+        Registers handlers for network manager events such as scanning, connecting (including open networks), reconnecting, disconnecting, forgetting networks, and querying the currently connected network.
+        
+        Parameters:
+            bus: Message bus instance used to subscribe to PHAL events.
+            config: Optional configuration dictionary or object for plugin initialization.
+        """
         super().__init__(bus=bus, name="ovos-PHAL-plugin-network-manager", config=config)
         # Register Network Manager Events
         self.bus.on("ovos.phal.nm.scan", self.handle_network_scan_request)
@@ -90,6 +99,16 @@ class NetworkManagerPlugin(PHALPlugin):
     # Network Manager Events
     def handle_network_scan_request(self, message):
         # Scan for networks using Network Manager and build a list of networks found and their security types
+        """
+        Scan for available Wi-Fi networks using Network Manager and emit a completion message with results.
+        
+        Performs an nmcli rescan and lists SSID and SECURITY fields, then emits an "ovos.phal.nm.scan.complete" Message on the bus with a payload containing a "networks" list. Each list item is a dict with keys:
+        - "ssid": network SSID string
+        - "security": security string reported by nmcli
+        
+        Parameters:
+            message (Message): Incoming request message (contents are not inspected).
+        """
         LOG.info("Scanning for networks using nmcli backend")
         subprocess.Popen(
             ['nmcli', 'dev', 'wifi', 'rescan']
