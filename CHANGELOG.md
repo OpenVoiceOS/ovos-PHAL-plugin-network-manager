@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.6a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.6a2) (2026-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.6a1...1.3.6a2)
+
+**Merged pull requests:**
+
+- chore: add missing shared CI workflows [\#45](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/45) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [1.3.6a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.6a1) (2026-06-06)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.3.5...1.3.6a1)
