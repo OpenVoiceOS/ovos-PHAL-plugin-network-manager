@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.7a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.7a1) (2026-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.6a2...1.3.7a1)
+
+**Merged pull requests:**
+
+- fix: require ovos-plugin-manager\>=2.1.0 for opm.\* entry points and cap ovos-\* deps at next major [\#47](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/47) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [1.3.6a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.6a2) (2026-06-16)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.6a1...1.3.6a2)
