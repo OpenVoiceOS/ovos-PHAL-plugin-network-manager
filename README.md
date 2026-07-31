@@ -1,21 +1,20 @@
 # PHAL plugin - Network Manager
 
-Provides the network manager interface for NetworkManager based plugins.
-This plugin utilizes nmcli for all communications with network manager.
-The dbus interface for this plugin is a work in progress. [#15](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/15)
+This plugin provides the network manager interface for OpenVoiceOS. It uses `nmcli` for all communication with NetworkManager. The D-Bus interface is a work in progress ([#15](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/15)).
 
 # Requires
-This plugin has the following requirements:
-- nmcli
 
+This plugin needs `nmcli`.
 
 # Install
 
-`pip install ovos-PHAL-plugin-network-manager`
+```bash
+pip install ovos-PHAL-plugin-network-manager
+```
 
 # Config
 
-This plugin is a Admin plugin, it needs to run as root and to be explicitly enabled in mycroft.conf
+This plugin is an admin plugin. It needs to run as root and to be enabled in `mycroft.conf`.
 
 ```javascript
 {
@@ -26,16 +25,17 @@ This plugin is a Admin plugin, it needs to run as root and to be explicitly enab
 }
 }
 ```
-if not enabled (omit config above) it will be run as the regular user, you need to ensure [polkit policy](https://github.com/OpenVoiceOS/ovos-buildroot/blob/5c7af8b05892206846ae06adb3478f1df620bf6b/buildroot-external/rootfs-overlay/base/etc/polkit-1/rules.d/50-org.freedesktop.NetworkManager.rules) is set to allow usage of nmcli without sudo
 
-# Event Details:
+If you omit this config, the plugin runs as the regular user. In that case, set the [polkit policy](https://github.com/OpenVoiceOS/ovos-buildroot/blob/5c7af8b05892206846ae06adb3478f1df620bf6b/buildroot-external/rootfs-overlay/base/etc/polkit-1/rules.d/50-org.freedesktop.NetworkManager.rules) to allow `nmcli` without sudo.
+
+# Event Details
 
 ##### Scanning
 
-This plugin provides scanning operations for Network Manager to scan for available nearby networks, the following event can be used to initialize the scan.
+This plugin scans for nearby networks. Use the following event to start a scan.
 
 ```python
-# Scanning: 
+# Scanning:
 # ovos.phal.nm.scan
 # - type: Request
 # - description: Allows client to request for a network scan
@@ -48,10 +48,9 @@ This plugin provides scanning operations for Network Manager to scan for availab
 
 ##### Connecting
 
-This plugin provides handling of connection operations for Network Manager, the following events can be used to connect a network, disconnect a network using the network manager interface.
+This plugin connects to and disconnects from networks. Use the following events to manage a connection.
 
 ```python
-
 # Connecting:
 # ovos.phal.nm.connect
 # - type: Request
@@ -81,7 +80,7 @@ This plugin provides handling of connection operations for Network Manager, the 
 
 ##### Forget Networks
 
-The plugin also provides a interface to forget already connected networks, The following events can be used to forget a network
+This plugin also forgets networks that a client already connected to. Use the following events to forget a network.
 
 ```python
 # Forgetting:
@@ -97,3 +96,12 @@ The plugin also provides a interface to forget already connected networks, The f
 # - type: Response
 # - description: Emitted when a connection fails to forget
 ```
+
+# Related projects
+
+- [OpenVoiceOS/ovos-PHAL](https://github.com/OpenVoiceOS/ovos-PHAL): the hardware abstraction layer this plugin extends
+- [OpenVoiceOS/ovos-PHAL-plugin-wifi-setup](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-wifi-setup): guides a device through first-time WiFi setup
+
+# License
+
+Apache-2.0

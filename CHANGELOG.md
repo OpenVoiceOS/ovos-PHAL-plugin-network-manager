@@ -1,40 +1,40 @@
 # Changelog
 
-## [1.3.5a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a4) (2026-03-01)
+## [1.3.7a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.7a2) (2026-07-31)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5a3...1.3.5a4)
-
-**Merged pull requests:**
-
-- chore!: drop GUI [\#39](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/39) ([JarbasAl](https://github.com/JarbasAl))
-
-## [1.3.5a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a3) (2025-12-19)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5a2...1.3.5a3)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.7a1...1.3.7a2)
 
 **Merged pull requests:**
 
-- Update dependency ovos-plugin-manager to v2 [\#37](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/37) ([renovate[bot]](https://github.com/apps/renovate))
+- docs: rewrite README in Simplified Technical English [\#49](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/49) ([JarbasAl](https://github.com/JarbasAl))
 
-## [1.3.5a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a2) (2025-12-19)
+## [1.3.7a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.7a1) (2026-06-16)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5a1...1.3.5a2)
-
-**Merged pull requests:**
-
-- Update dependency python to 3.14 [\#32](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/32) ([renovate[bot]](https://github.com/apps/renovate))
-
-## [1.3.5a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.5a1) (2025-12-18)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.3.4...1.3.5a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.6a2...1.3.7a1)
 
 **Merged pull requests:**
 
-- Configure Renovate [\#31](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/31) ([renovate[bot]](https://github.com/apps/renovate))
+- fix: require ovos-plugin-manager\>=2.1.0 for opm.\* entry points and cap ovos-\* deps at next major [\#47](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/47) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V1.3.4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.3.4) (2024-12-10)
+## [1.3.6a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.6a2) (2026-06-16)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.4...V1.3.4)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.6a1...1.3.6a2)
+
+**Merged pull requests:**
+
+- chore: add missing shared CI workflows [\#45](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/45) ([JarbasAl](https://github.com/JarbasAl))
+
+## [1.3.6a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/1.3.6a1) (2026-06-06)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/V1.3.5...1.3.6a1)
+
+**Merged pull requests:**
+
+- fix\(deps\): allow ovos-bus-client 2.x \(widen cap to \<3.0.0\) [\#43](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/pull/43) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V1.3.5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/tree/V1.3.5) (2026-03-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-network-manager/compare/1.3.5...V1.3.5)
 
 
 
